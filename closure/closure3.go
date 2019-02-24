@@ -14,4 +14,17 @@ func main() {
 	}
 
 	time.Sleep(1 * time.Second)
+	function()
+}
+
+func function() {
+	fmt.Println("*****************")
+	for val := 0; val < 4; val++ {
+		time.Sleep(1 * time.Second)
+		go func() {
+			fmt.Printf("&val = %p, val = %d\n", &val, val)
+		}()
+	}
+
+	time.Sleep(1 * time.Second)
 }
