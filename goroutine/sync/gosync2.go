@@ -6,6 +6,7 @@ import (
 
 var str string
 var a string
+var b string
 
 /* 缓冲通道 */
 var ch = make(chan int, 10)
@@ -23,6 +24,17 @@ func function() {
 	fmt.Println(a)
 }
 
+/* 不保证打印 */
+func function1() {
+	go func() {
+		b = "goroutine."
+		<-ch
+	}()
+
+	ch <- 0
+	fmt.Println(b)
+}
+
 /* 通道完成同步，打印str值 */
 func main() {
 	go func() {
@@ -35,4 +47,7 @@ func main() {
 
 	fmt.Println("*************")
 	function()
+
+	fmt.Println("*************")
+	function1()
 }
