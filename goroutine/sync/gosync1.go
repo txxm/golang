@@ -6,7 +6,7 @@ import (
 
 var str string
 
-/* 可能不打印任何值，因为print在goroutine之前执行 */
+/* 可能不打印任何值，因为print在goroutine之前执行完 */
 func main() {
 	go func() {
 		str = "Golang"
