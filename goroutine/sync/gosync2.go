@@ -9,7 +9,6 @@ var a string
 
 /* 缓冲通道 */
 var ch = make(chan int, 10)
-
 /* 无缓冲通道 */
 var channel = make(chan int)
 
